@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private void ShootGun()
     {
         RaycastHit hit;
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, gunTransform.position + new Vector3(0, 0, 1), Quaternion.identity, bulletParent);
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, gunTransform.position, Quaternion.identity, bulletParent);
         BulletController bulletController = bullet.GetComponent<BulletController>();
         if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
         {
