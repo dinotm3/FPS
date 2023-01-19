@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using BehaviorTree;
 
 public class TaskPatrol : Node
@@ -15,7 +14,6 @@ public class TaskPatrol : Node
     private bool _waiting = false;
 
     //private Animator _animator;
-    private Transform[] waypoints;
 
     public TaskPatrol(Transform transform, Transform[] waypoints)
     {
@@ -40,7 +38,7 @@ public class TaskPatrol : Node
             _transform.position = wp.position;
             _waitCounter = 0f;
             _waiting = true;
-            _currentWaypointIndex = (_currentWaypointIndex = 1) % _waypoints.Length;
+            _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Length;
         }
         else
         {
