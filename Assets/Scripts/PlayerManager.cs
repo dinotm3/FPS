@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        _healthpoints = 20;
+        _healthpoints = 100;
     }
 
     public bool TakeHit()

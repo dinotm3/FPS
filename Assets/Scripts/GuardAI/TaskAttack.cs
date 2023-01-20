@@ -24,21 +24,20 @@ public class TaskAttack : Node
 
     private void Attack(Transform target)
     {
-        if (_attackCounter >= _attackTime && target != null)
-        {
-            bool enemyIsDead = _playerManager.TakeHit();
-            if (enemyIsDead)
-            {
-                ClearData("target");
-                //_animator.SetBool("Attacking", false);
-                // _animator.SetBool("Walking", true);
 
-            }
-            else
-            {
-                _attackCounter = 0f;
-            }
+        bool enemyIsDead = _playerManager.TakeHit();
+        if (enemyIsDead)
+        {
+        ClearData("target");
+         //_animator.SetBool("Attacking", false);
+         // _animator.SetBool("Walking", true);
+
         }
+        else
+        {
+            _attackCounter = 0f;
+        }
+        
     }
     public override NodeState Evaluate()
     {
@@ -56,9 +55,12 @@ public class TaskAttack : Node
         }
 
         _attackCounter += Time.deltaTime;
-        Attack(target);
-        
-       
+        if (_attackCounter >= _attackTime && target != null)
+        {
+            Attack(target);
+        }
+
+
         state = NodeState.RUNNING;
         return state;
     }
