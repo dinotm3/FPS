@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform bulletParent;
     [SerializeField]
-    private Transform gunTransform;
+    private Transform barrelTransform;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction shootAction;
-    private InputAction petAction;
     private Transform cameraTransform;
     [SerializeField]
     private float bulletHitMissDistance = 25f;
@@ -42,19 +41,17 @@ public class PlayerController : MonoBehaviour
         jumpAction = playerInput.actions["Jump"];
         cameraTransform = Camera.main.transform;
         shootAction = playerInput.actions["Shoot"];
-        petAction = playerInput.actions["Pet"];
     }
 
     private void OnEnable()
     {
         shootAction.performed += _ => ShootGun();
-        petAction.performed += _ => PetAttack();
     }
 
     private void ShootGun()
     {
         RaycastHit hit;
-        GameObject bullet = GameObject.Instantiate(bulletPrefab, gunTransform.position, Quaternion.identity, bulletParent);
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
         BulletController bulletController = bullet.GetComponent<BulletController>();
         if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
         {
@@ -67,11 +64,6 @@ public class PlayerController : MonoBehaviour
             bulletController.hit = false;
         }
 
-    }
-
-    private void PetAttack()
-    {
-  
     }
 
     void Update()
