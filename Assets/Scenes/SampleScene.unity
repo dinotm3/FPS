@@ -4577,7 +4577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 786256300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Orientation
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4880,7 +4880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1359371913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrel
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5078,7 +5078,7 @@ GameObject:
   - component: {fileID: 1454288203}
   - component: {fileID: 1454288202}
   - component: {fileID: 1454288201}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: AimCanvas
   m_TagString: AimCanvas
   m_Icon: {fileID: 0}
@@ -5178,7 +5178,7 @@ GameObject:
   - component: {fileID: 1565834980}
   - component: {fileID: 1565834982}
   - component: {fileID: 1565834981}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6408,7 +6408,7 @@ GameObject:
   - component: {fileID: 1988931207}
   - component: {fileID: 1988931206}
   - component: {fileID: 1988931205}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6508,7 +6508,7 @@ GameObject:
   - component: {fileID: 2050849751}
   - component: {fileID: 2050849755}
   - component: {fileID: 2050849756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pet
   m_TagString: Pet
   m_Icon: {fileID: 0}
@@ -6755,6 +6755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8134121781103216212, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8134121781187863589, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -6777,7 +6781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8134121781187863590, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.44
+      value: -20.12
       objectReference: {fileID: 0}
     - target: {fileID: 8134121781187863590, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6785,7 +6789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8134121781187863590, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.23
+      value: 23.36
       objectReference: {fileID: 0}
     - target: {fileID: 8134121781187863590, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6818,6 +6822,10 @@ PrefabInstance:
     - target: {fileID: 8134121781187864026, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134121781187864026, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8134121781187864026, guid: 635edb5e0464e3344bcdcbbc838e9c71, type: 3}
       propertyPath: m_TagString
