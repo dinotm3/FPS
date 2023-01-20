@@ -19,39 +19,46 @@ public class TaskAttack : Node
     public TaskAttack(Transform transform)
     {
         //_animator = transform.GetComponent<Animator>();
-        //_startPosition = transform.GetComponent<Transform>();
         
     }
 
-    public override NodeState Evaluate()
+    private void Attack(Transform target)
     {
-        Transform target = (Transform)GetData("target");
-        //var currentPosition = _startPosition.position;
-        //float distance = Vector3.Distance(currentPosition, target.position);
-        //Debug.Log("distance: " + distance);
-
-        //if (target != _lastTarget)
-        //{
-        //    _playerManager = target.GetComponent<PlayerManager>();
-        //    _lastTarget = target;
-        //}
-
-        _attackCounter += Time.deltaTime;
-        if (_attackCounter >= _attackTime)
+        if (_attackCounter >= _attackTime && target != null)
         {
-            bool enemyIsDead = target.GetComponent<PlayerManager>().TakeHit();
+            bool enemyIsDead = _playerManager.TakeHit();
             if (enemyIsDead)
             {
                 ClearData("target");
                 //_animator.SetBool("Attacking", false);
-               // _animator.SetBool("Walking", true);
+                // _animator.SetBool("Walking", true);
+
             }
             else
             {
                 _attackCounter = 0f;
             }
         }
+    }
+    public override NodeState Evaluate()
+    {
+        
+        Transform target = (Transform)GetData("target");
+        if (target == null)
+        {
+            target = (Transform)GetData("target");
+        }
 
+        if (target != _lastTarget)
+        {
+            _playerManager = target.GetComponent<PlayerManager>();
+            _lastTarget = target;
+        }
+
+        _attackCounter += Time.deltaTime;
+        Attack(target);
+        
+       
         state = NodeState.RUNNING;
         return state;
     }
