@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction shootAction;
+    private InputAction petAction;
     private Transform cameraTransform;
     [SerializeField]
     private float bulletHitMissDistance = 25f;
@@ -40,11 +42,13 @@ public class PlayerController : MonoBehaviour
         jumpAction = playerInput.actions["Jump"];
         cameraTransform = Camera.main.transform;
         shootAction = playerInput.actions["Shoot"];
+        petAction = playerInput.actions["Pet"];
     }
 
     private void OnEnable()
     {
         shootAction.performed += _ => ShootGun();
+        petAction.performed += _ => PetAttack();
     }
 
     private void ShootGun()
@@ -63,6 +67,11 @@ public class PlayerController : MonoBehaviour
             bulletController.hit = false;
         }
 
+    }
+
+    private void PetAttack()
+    {
+  
     }
 
     void Update()

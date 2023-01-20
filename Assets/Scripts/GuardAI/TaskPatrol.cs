@@ -12,7 +12,6 @@ public class TaskPatrol : Node
     private float _waitTime = 1f;
     private float _waitCounter = 0f;
     private bool _waiting = false;
-
     //private Animator _animator;
 
     public TaskPatrol(Transform transform, Transform[] waypoints)
