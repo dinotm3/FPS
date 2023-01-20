@@ -6,6 +6,8 @@ TagManager:
   tags:
   - AimCamera
   - AimCanvas
+  - Pet
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -33,7 +33,16 @@ public class BulletController : MonoBehaviour
     {
         Debug.Log("Hit: " + collision.gameObject.name);
         ContactPoint contact = collision.GetContact(0);
-        GameObject.Instantiate(bulletHole, contact.point + contact.normal * .0001f, Quaternion.LookRotation(contact.normal));
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Pet"))
+        {
+            Destroy(gameObject);
+
+        }
+        else
+        {
+            GameObject.Instantiate(bulletHole, contact.point + contact.normal * .0001f, Quaternion.LookRotation(contact.normal));
+            Destroy(gameObject);
+
+        }
     }
 }

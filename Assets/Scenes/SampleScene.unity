@@ -4657,7 +4657,7 @@ MonoBehaviour:
   rotationSpeed: 5
   bulletPrefab: {fileID: 8610823163742303514, guid: df0b2f4f8600923458f1dc7c4b129eea, type: 3}
   bulletParent: {fileID: 0}
-  gunTransform: {fileID: 1988931204}
+  barrelTransform: {fileID: 1359371913}
   bulletHitMissDistance: 25
 --- !u!143 &1127202671
 CharacterController:
@@ -4895,7 +4895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359371912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6510,7 +6510,7 @@ GameObject:
   - component: {fileID: 2050849756}
   m_Layer: 0
   m_Name: Pet
-  m_TagString: Untagged
+  m_TagString: Pet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6644,7 +6644,7 @@ GameObject:
   - component: {fileID: 2060189251}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
