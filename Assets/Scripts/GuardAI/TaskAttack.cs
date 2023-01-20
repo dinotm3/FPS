@@ -20,7 +20,7 @@ public class TaskAttack : Node
         _animator = transform.GetComponent<Animator>();
     }
 
-    private void Attack(Transform target)
+    private void Attack()
     {
 
         bool enemyIsDead = _playerManager.TakeHit();
@@ -61,7 +61,7 @@ public class TaskAttack : Node
             {
                 if (_rangeCheck.CheckRange(target.position))
                 {
-                    Attack(target);
+                    Attack();
                 }
             }
 
