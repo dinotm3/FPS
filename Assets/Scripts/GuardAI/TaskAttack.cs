@@ -6,20 +6,18 @@ using BehaviorTree;
 
 public class TaskAttack : Node
 {
-    //private Animator _animator;
+    private Animator _animator;
 
     private Transform _lastTarget;
     private PlayerManager _playerManager;
-
     private float _attackTime = 1f;
     private float _attackCounter = 0f;
     private float _attackRange = 2;
     private Transform _startPosition;
-
+    private EnemyRangeCheck _rangeCheck;
     public TaskAttack(Transform transform)
     {
-        //_animator = transform.GetComponent<Animator>();
-        
+        _animator = transform.GetComponent<Animator>();
     }
 
     private void Attack(Transform target)
@@ -41,6 +39,7 @@ public class TaskAttack : Node
     }
     public override NodeState Evaluate()
     {
+
         
         Transform target = (Transform)GetData("target");
         if (target == null)
@@ -57,7 +56,11 @@ public class TaskAttack : Node
         _attackCounter += Time.deltaTime;
         if (_attackCounter >= _attackTime && target != null)
         {
-            Attack(target);
+            _rangeCheck = _animator.GetComponentInParent<EnemyRangeCheck>();
+            if (_rangeCheck.CheckRange(target.position))
+            {
+                Attack(target);
+            }
         }
 
 
