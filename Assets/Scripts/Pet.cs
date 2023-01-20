@@ -7,18 +7,20 @@ public class Pet : MonoBehaviour
 {
     public NavMeshAgent agent;
     private Camera camera;
-
     private void Awake()
     {
         camera = Camera.main;
     }
     public void Move()
     {
+
         Ray movePosition = camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(movePosition, out var hitInfo))
         {
             agent.SetDestination(hitInfo.point);
+
         }
+ 
     }
     private void Update()
     {
