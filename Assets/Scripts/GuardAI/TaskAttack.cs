@@ -57,10 +57,14 @@ public class TaskAttack : Node
         if (_attackCounter >= _attackTime && target != null)
         {
             _rangeCheck = _animator.GetComponentInParent<EnemyRangeCheck>();
-            if (_rangeCheck.CheckRange(target.position))
+            if (target != null)
             {
-                Attack(target);
+                if (_rangeCheck.CheckRange(target.position))
+                {
+                    Attack(target);
+                }
             }
+
         }
 
 
