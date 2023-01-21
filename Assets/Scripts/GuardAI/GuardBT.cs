@@ -4,7 +4,7 @@ using BehaviorTree;
 
 public class GuardBT : Tree
 {
-    //public UnityEngine.Transform[] waypoints;
+    public UnityEngine.Transform[] waypoints;
 
     public static float speed = 2f;
     public static float fovRange = 10f;
@@ -20,7 +20,7 @@ public class GuardBT : Tree
                 new TaskGoToTarget(transform),
                 new TaskAttack(transform),
             }),
-            //new TaskPatrol(transform, waypoints),
+            new TaskPatrol(transform, waypoints),
         });
         return root;
     }
