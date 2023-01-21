@@ -61,6 +61,8 @@ public class TaskAttack : Node
                 {
                     Attack();
                 }
+                _playerManager = target.GetComponent<PlayerManager>();
+
             }
         }
 
