@@ -16,11 +16,15 @@ public class TaskGoToTarget : Node
     {
         Transform target = (Transform)GetData("target");
 
-        if (Vector3.Distance(_transform.position, target.position) > 2f)
+        if (target != null)
         {
-            _transform.position = Vector3.MoveTowards(
-                _transform.position, target.position, GuardBT.speed * Time.deltaTime);
-            _transform.LookAt(target.position);
+            if (Vector3.Distance(_transform.position, target.position) > 2f)
+            {
+                _transform.position = Vector3.MoveTowards(
+                    _transform.position, target.position, GuardBT.speed * Time.deltaTime);
+                _transform.LookAt(target.position);
+            }
+
         }
 
         state = NodeState.RUNNING;
