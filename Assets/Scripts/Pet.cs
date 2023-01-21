@@ -15,6 +15,7 @@ public class Pet : MonoBehaviour
     private EnemyRangeCheck rangeCheck;
     private PlayerManager playerManager;
     private bool isAttacking;
+    private const string bearAttackAnim = "Combat Idle";
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -32,7 +33,7 @@ public class Pet : MonoBehaviour
             var enemyManager = target.GetComponent<EnemyManager>();
             if (enemyManager.healthpoints <= 0)
             {
-                animator.SetBool("Attacking", false);
+                animator.SetBool(bearAttackAnim, false);
                 animator.SetBool("WalkForward", false);
                 animator.SetBool("Idle", true);
                 isAttacking = false;
@@ -42,8 +43,11 @@ public class Pet : MonoBehaviour
             {
                 if (rangeCheck.CheckRange(enemyManager.transform.position))
                 {
-                    animator.SetBool("Attacking", true);
+                    animator.SetBool(bearAttackAnim, true);
                     enemyManager.TakeHit();
+                } else
+                {
+                    agent.SetDestination(enemyManager.transform.position);
                 }
             }
             yield return new WaitForSeconds(attackTime);
@@ -53,7 +57,7 @@ public class Pet : MonoBehaviour
             }
         } else
         {
-            animator.SetBool("Attacking", false);
+            animator.SetBool(bearAttackAnim, false);
             animator.SetBool("WalkForward", false);
             animator.SetBool("Idle", true);
             isAttacking = false;
@@ -100,12 +104,13 @@ public class Pet : MonoBehaviour
 
             if (isAttacking)
             {
-                animator.SetBool("Attacking", false);
+                animator.SetBool(bearAttackAnim, true);
+                animator.SetBool("Idle", false);
+
             }
             else
             {
                 animator.SetBool("WalkForward", false);
-
                 animator.SetBool("Idle", true);
 
             }

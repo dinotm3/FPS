@@ -21,8 +21,4 @@ public class EnemyRangeCheck : MonoBehaviour
         }
         return isInRange;
     }
-    void Update()
-    {
-
-    }
 }
