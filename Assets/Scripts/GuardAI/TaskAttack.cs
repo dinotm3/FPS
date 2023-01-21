@@ -39,8 +39,6 @@ public class TaskAttack : Node
     }
     public override NodeState Evaluate()
     {
-
-        
         Transform target = (Transform)GetData("target");
         if (target == null)
         {
@@ -64,9 +62,7 @@ public class TaskAttack : Node
                     Attack();
                 }
             }
-
         }
-
 
         state = NodeState.RUNNING;
         return state;
