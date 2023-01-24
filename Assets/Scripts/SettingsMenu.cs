@@ -9,7 +9,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void Awake()
     {
-        SetQuality(2);
+
     }
     public void SetVolume (float volume)
     {
@@ -19,5 +19,10 @@ public class SettingsMenu : MonoBehaviour
     public void SetQuality (int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void SetFullSCreen (bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
     }
 }
