@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
     private int _healthpoints;
-
+    public Slider healthBar;
+    
     private void Awake()
     {
         _healthpoints = 100;
@@ -21,5 +23,14 @@ public class PlayerManager : MonoBehaviour
     private void _Die()
     {
         Destroy(this.gameObject);
+    }
+
+    private void Update()
+    {
+        if (healthBar != null)
+        {
+            healthBar.value = _healthpoints;
+
+        }
     }
 }
