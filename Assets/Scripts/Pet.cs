@@ -92,27 +92,30 @@ public class Pet : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (!PauseMenu.isPaused)
         {
-            MoveOrAttack();
-        }
-
-        if (agent.remainingDistance < 1)
-        {
-            animator.SetBool("WalkForward", false);
-            animator.SetBool("Idle", true);
-
-            if (isAttacking)
+            if (Input.GetMouseButtonDown(1))
             {
-                animator.SetBool(bearAttackAnim, true);
-                animator.SetBool("Idle", false);
-
+                MoveOrAttack();
             }
-            else
+
+            if (agent.remainingDistance < 1)
             {
                 animator.SetBool("WalkForward", false);
                 animator.SetBool("Idle", true);
 
+                if (isAttacking)
+                {
+                    animator.SetBool(bearAttackAnim, true);
+                    animator.SetBool("Idle", false);
+
+                }
+                else
+                {
+                    animator.SetBool("WalkForward", false);
+                    animator.SetBool("Idle", true);
+
+                }
             }
         }
     }
