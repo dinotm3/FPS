@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Level1Manager : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.PlaySound("Search");
+        //AudioManager.instance.PlaySound("Search");
     }
 
     // Update is called once per frame
