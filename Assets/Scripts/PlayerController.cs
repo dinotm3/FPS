@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
     private float bulletHitMissDistance = 25f;
 
     public GameObject crosshair;
+    private Animator animator;
+    int moveXAnimatiorParamId;
+    int moveZAnimatiorParamId;
 
     private void Awake()
     {
@@ -44,6 +47,9 @@ public class PlayerController : MonoBehaviour
         cameraTransform = Camera.main.transform;
         shootAction = playerInput.actions["Shoot"];
         crosshair.SetActive(true);
+        animator = GetComponent <Animator>();
+        moveXAnimatiorParamId = Animator.StringToHash("MoveX");
+        moveZAnimatiorParamId = Animator.StringToHash("MoveZ");
     }
 
     private void OnEnable()
@@ -89,6 +95,9 @@ public class PlayerController : MonoBehaviour
             move.y = 0f;
             controller.Move(move * Time.deltaTime * playerSpeed);
 
+            // 
+            animator.SetFloat(moveXAnimatiorParamId, input.x);
+            animator.SetFloat(moveZAnimatiorParamId, input.y);
 
             // Changes the height position of the player..
             if (jumpAction.triggered && groundedPlayer)
