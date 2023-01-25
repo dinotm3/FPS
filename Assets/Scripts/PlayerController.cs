@@ -34,10 +34,12 @@ public class PlayerController : MonoBehaviour
     private float bulletHitMissDistance = 25f;
 
     public GameObject crosshair;
+
     private Animator animator;
     int moveXAnimatiorParamId;
     int moveZAnimatiorParamId;
     int jumpAnimation;
+    int recoilAnimation;
 
     private void Awake()
     {
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         moveXAnimatiorParamId = Animator.StringToHash("MoveX");
         moveZAnimatiorParamId = Animator.StringToHash("MoveZ");
         jumpAnimation= Animator.StringToHash("Jump");
+        recoilAnimation= Animator.StringToHash("Recoil");
     }
 
     private void OnEnable()
@@ -76,6 +79,8 @@ public class PlayerController : MonoBehaviour
                 bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
                 bulletController.hit = false;
             }
+
+            animator.CrossFade(recoilAnimation, 0.2f);
         }
     }
 
