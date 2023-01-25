@@ -8,11 +8,14 @@ public class TaskGoToTarget : Node
 {
     private Transform _transform; 
     private NavMeshAgent agent;
+    private Animator _animator;
+
 
     public TaskGoToTarget(Transform transform)
     {
         _transform = transform;
         agent = _transform.GetComponent<NavMeshAgent>();
+        _animator = _transform.GetComponent<Animator>();
 
     }
 
@@ -28,9 +31,14 @@ public class TaskGoToTarget : Node
                 //    _transform.position, target.position, GuardBT.speed * Time.deltaTime);
                 //_transform.LookAt(target.position);
                 agent.SetDestination(target.position);
+                if (_animator != null && _animator.isActiveAndEnabled && _animator.gameObject.activeInHierarchy && _animator.gameObject.activeSelf)
+                {
+                    _animator.SetBool("Walking", true);
+                    _animator.SetBool("Idle", false);
+                }
+
 
             }
-
         }
 
         state = NodeState.RUNNING;

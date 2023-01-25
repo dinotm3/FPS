@@ -15,6 +15,7 @@ public class TaskAttack : Node
     private float _attackRange = 2;
     private Transform _startPosition;
     private EnemyRangeCheck _rangeCheck;
+
     public TaskAttack(Transform transform)
     {
         _animator = transform.GetComponent<Animator>();
@@ -22,14 +23,20 @@ public class TaskAttack : Node
 
     private void Attack()
     {
+        if (_animator != null && _animator.isActiveAndEnabled && _animator.gameObject.activeInHierarchy && _animator.gameObject.activeSelf)
+            //_animator.SetBool("Attacking", true);
+            _animator.SetBool("Walking", false);
+            _animator.SetBool("Idle", false);
+
 
         bool enemyIsDead = _playerManager.TakeHit();
         if (enemyIsDead)
         {
         ClearData("target");
-         //_animator.SetBool("Attacking", false);
-         // _animator.SetBool("Walking", true);
-
+            //_animator.SetBool("Attacking", false);
+        if (_animator != null && _animator.isActiveAndEnabled && _animator.gameObject.activeInHierarchy && _animator.gameObject.activeSelf)
+            _animator.SetBool("Walking", true);
+            _animator.SetBool("Idle", false);
         }
         else
         {
@@ -60,6 +67,7 @@ public class TaskAttack : Node
                 if (_rangeCheck.CheckRange(target.position))
                 {
                     Attack();
+                    
                 }
                 _playerManager = target.GetComponent<PlayerManager>();
 
