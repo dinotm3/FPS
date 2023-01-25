@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     int moveXAnimatiorParamId;
     int moveZAnimatiorParamId;
+    int jumpAnimation = Animator.StringToHash("Jump");
 
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent <Animator>();
         moveXAnimatiorParamId = Animator.StringToHash("MoveX");
         moveZAnimatiorParamId = Animator.StringToHash("MoveZ");
+        moveZAnimatiorParamId = Animator.StringToHash("Jump");
     }
 
     private void OnEnable()
@@ -103,6 +105,7 @@ public class PlayerController : MonoBehaviour
             if (jumpAction.triggered && groundedPlayer)
             {
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                animator.SetTrigger(jumpAnimation);
             }
 
             playerVelocity.y += gravityValue * Time.deltaTime;
