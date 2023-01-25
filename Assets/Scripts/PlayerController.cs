@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     int moveXAnimatiorParamId;
     int moveZAnimatiorParamId;
-    int jumpAnimation = Animator.StringToHash("Jump");
+    int jumpAnimation;
 
     private void Awake()
     {
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent <Animator>();
         moveXAnimatiorParamId = Animator.StringToHash("MoveX");
         moveZAnimatiorParamId = Animator.StringToHash("MoveZ");
-        moveZAnimatiorParamId = Animator.StringToHash("Jump");
+        jumpAnimation= Animator.StringToHash("Jump");
     }
 
     private void OnEnable()
