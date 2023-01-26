@@ -64,28 +64,39 @@ public class PlayerController : MonoBehaviour
         shootAction.performed += _ => ShootGun();
     }
 
+    public void Interact()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
+        {
+            if (hit.collider.CompareTag("Interactable"))
+            {
+                hit.collider.gameObject.GetComponent<Interact>().Trigger();
+            }
+        }
+    }
+
     public void ShootGun()
     {
         if (!PauseMenu.isPaused)
         {
 
-                RaycastHit hit;
-                GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
-                bullet.GetComponent<MeshRenderer>().enabled = false;
-                AudioManager.instance.PlaySound("Shoot");
-                BulletController bulletController = bullet.GetComponent<BulletController>();
-                if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
-                {
-                    bulletController.target = hit.point;
-                    bulletController.hit = true;
-                }
-                else
-                {
-                    bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
-                    bulletController.hit = false;
-                }
-                animator.CrossFade(recoilAnimation, 0.2f);
-            
+            RaycastHit hit;
+            GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+            bullet.GetComponent<MeshRenderer>().enabled = false;
+            AudioManager.instance.PlaySound("Shoot");
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+            if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
+            {
+                bulletController.target = hit.point;
+                bulletController.hit = true;
+            }
+            else
+            {
+                bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                bulletController.hit = false;
+            }
+            animator.CrossFade(recoilAnimation, 0.2f);
         }
     }
 
@@ -93,6 +104,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!PauseMenu.isPaused)
         {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Interact();
+            }
             crosshair.SetActive(true);
             groundedPlayer = controller.isGrounded;
             if (groundedPlayer && playerVelocity.y < 0)
@@ -125,7 +140,8 @@ public class PlayerController : MonoBehaviour
             float targetAngle = cameraTransform.eulerAngles.y;
             Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        } else
+        } 
+        else
         {
             crosshair.SetActive(false);
         }
