@@ -9,6 +9,7 @@ TagManager:
   - Pet
   - Enemy
   - Env
+  - Interactable
   layers:
   - Default
   - TransparentFX
