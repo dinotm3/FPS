@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     private Transform cameraTransform;
     [SerializeField]
     private float bulletHitMissDistance = 25f;
-
     public GameObject crosshair;
 
     private Animator animator;
@@ -68,6 +67,8 @@ public class PlayerController : MonoBehaviour
         {
             RaycastHit hit;
             GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+            bullet.GetComponent<MeshRenderer>().enabled = false;
+            AudioManager.instance.PlaySound("Shoot");
             BulletController bulletController = bullet.GetComponent<BulletController>();
             if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
             {
