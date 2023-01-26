@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     int jumpAnimation;
     int recoilAnimation;
 
+    public bool canShoot;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
         moveZAnimatiorParamId = Animator.StringToHash("MoveZ");
         jumpAnimation= Animator.StringToHash("Jump");
         recoilAnimation= Animator.StringToHash("Recoil");
+        canShoot = true;
     }
 
     private void OnEnable()
@@ -61,27 +64,28 @@ public class PlayerController : MonoBehaviour
         shootAction.performed += _ => ShootGun();
     }
 
-    private void ShootGun()
+    public void ShootGun()
     {
         if (!PauseMenu.isPaused)
         {
-            RaycastHit hit;
-            GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
-            bullet.GetComponent<MeshRenderer>().enabled = false;
-            AudioManager.instance.PlaySound("Shoot");
-            BulletController bulletController = bullet.GetComponent<BulletController>();
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
-            {
-                bulletController.target = hit.point;
-                bulletController.hit = true;
-            }
-            else
-            {
-                bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
-                bulletController.hit = false;
-            }
 
-            animator.CrossFade(recoilAnimation, 0.2f);
+                RaycastHit hit;
+                GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+                bullet.GetComponent<MeshRenderer>().enabled = false;
+                AudioManager.instance.PlaySound("Shoot");
+                BulletController bulletController = bullet.GetComponent<BulletController>();
+                if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
+                {
+                    bulletController.target = hit.point;
+                    bulletController.hit = true;
+                }
+                else
+                {
+                    bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                    bulletController.hit = false;
+                }
+                animator.CrossFade(recoilAnimation, 0.2f);
+            
         }
     }
 

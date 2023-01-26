@@ -9,12 +9,10 @@ public class EnemyFOVRangeCheck : Node
     private static int _enemyLayerMask = 1 << 6;
 
     private Transform _transform;
-  //private Animator _animator;
 
     public EnemyFOVRangeCheck(Transform transform)
     {
         _transform = transform;
-        //_animator = transform.GetComponent<Animator>();
     }
 
     public override NodeState Evaluate()
@@ -28,7 +26,6 @@ public class EnemyFOVRangeCheck : Node
             if (colliders.Length > 0)
             {
                 parent.parent.SetData("target", colliders[0].transform);
-                //_animator.SetBool("Walking", true);
                 state = NodeState.SUCCESS;
                 return state;
             }
