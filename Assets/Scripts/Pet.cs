@@ -31,7 +31,7 @@ public class Pet : MonoBehaviour
         if (target != null)
         {
             var enemyManager = target.GetComponent<EnemyManager>();
-            if (enemyManager.healthpoints <= 0)
+            if (enemyManager.healthPoints <= 0)
             {
                 animator.SetBool(bearAttackAnim, false);
                 animator.SetBool("WalkForward", false);

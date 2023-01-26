@@ -1,19 +1,24 @@
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : Enemy
 {
-    public int healthpoints;
+    public GuardBT guardBT;
+    public static int maxHP = 100;
+    private NavMeshAgent agent;
 
     private void Awake()
     {
-        healthpoints = 300;
+        healthPoints = maxHP;
+        guardBT = GetComponent<GuardBT>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     public bool TakeHit()
     {
-        healthpoints -= 10;
-        Debug.Log("Enemy hp: " + healthpoints);
-        bool isDead = healthpoints <= 0;
+        healthPoints -= 10;
+        Debug.Log("Enemy hp: " + healthPoints);
+        bool isDead = healthPoints <= 0;
         if (isDead) _Die();
         return isDead;
     }
@@ -21,5 +26,12 @@ public class EnemyManager : MonoBehaviour
     private void _Die()
     {
         Destroy(this.gameObject);
+    }
+
+    public void CounterAttack(GameObject gameObject)
+    {
+        agent.SetDestination(gameObject.transform.position);
+        agent.stoppingDistance = 3f;
+
     }
 }
