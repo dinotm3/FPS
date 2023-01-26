@@ -35,8 +35,8 @@ public class TaskPatrol : Node
             {
                 _animator.SetBool("Walking", true);
                 _animator.SetBool("Idle", false);
+                _animator.SetBool("Attacking", false);
             }
-
         }
 
         Transform wp = _waypoints[_currentWaypointIndex];
@@ -50,8 +50,8 @@ public class TaskPatrol : Node
             {
                 _animator.SetBool("Walking", false);
                 _animator.SetBool("Idle", true);
+                _animator.SetBool("Attacking", false);
             }
-
         }
         else
         {
@@ -62,6 +62,7 @@ public class TaskPatrol : Node
             {
                 _animator.SetBool("Walking", true);
                 _animator.SetBool("Idle", false);
+                _animator.SetBool("Attacking", false);
             }
         }
 

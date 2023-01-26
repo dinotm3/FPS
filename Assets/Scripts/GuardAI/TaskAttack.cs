@@ -10,40 +10,46 @@ public class TaskAttack : Node
 
     private Transform _lastTarget;
     private PlayerManager _playerManager;
-    private float _attackTime = 1f;
+    private float _attackTime = 2f;
     private float _attackCounter = 0f;
-    private float _attackRange = 2;
     private Transform _startPosition;
     private EnemyRangeCheck _rangeCheck;
 
     public TaskAttack(Transform transform)
     {
         _animator = transform.GetComponent<Animator>();
+        _rangeCheck = _animator.GetComponentInParent<EnemyRangeCheck>();
     }
 
-    private void Attack()
+    private NodeState Attack(Transform target)
     {
-        if (_animator != null && _animator.isActiveAndEnabled && _animator.gameObject.activeInHierarchy && _animator.gameObject.activeSelf)
-            //_animator.SetBool("Attacking", true);
+        if (_rangeCheck.CheckRange(target.position))
+        {
+            _animator.SetBool("Attacking", true);
             _animator.SetBool("Walking", false);
             _animator.SetBool("Idle", false);
-
-
-        bool enemyIsDead = _playerManager.TakeHit();
-        if (enemyIsDead)
+            bool enemyIsDead = _playerManager.TakeHit();
+            if (enemyIsDead)
+            {
+                ClearData("target");
+                _animator.SetBool("Attacking", false);
+            }
+            else
+            {
+                _attackCounter = 0f;
+                _animator.SetBool("Attacking", true);
+                _animator.SetBool("Walking", false);
+                _animator.SetBool("Idle", false);
+            }
+        } else
         {
-        ClearData("target");
-            //_animator.SetBool("Attacking", false);
-        if (_animator != null && _animator.isActiveAndEnabled && _animator.gameObject.activeInHierarchy && _animator.gameObject.activeSelf)
+            _animator.SetBool("Attacking", false);
             _animator.SetBool("Walking", true);
             _animator.SetBool("Idle", false);
         }
-        else
-        {
-            _attackCounter = 0f;
-        }
-        
+        return state = NodeState.FAILURE;  
     }
+
     public override NodeState Evaluate()
     {
         Transform target = (Transform)GetData("target");
@@ -61,14 +67,9 @@ public class TaskAttack : Node
         _attackCounter += Time.deltaTime;
         if (_attackCounter >= _attackTime && target != null)
         {
-            _rangeCheck = _animator.GetComponentInParent<EnemyRangeCheck>();
             if (target != null)
             {
-                if (_rangeCheck.CheckRange(target.position))
-                {
-                    Attack();
-                    
-                }
+                Attack(target);
                 _playerManager = target.GetComponent<PlayerManager>();
 
             }

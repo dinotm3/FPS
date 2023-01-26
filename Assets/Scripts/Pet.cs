@@ -11,7 +11,7 @@ public class Pet : MonoBehaviour
     public static int enemyLayerMask;
     private float attackRange = 2;
     private float attackCounter = 0f;
-    private float attackTime = 1f;
+    private float attackTime = 5f;
     private EnemyRangeCheck rangeCheck;
     private PlayerManager playerManager;
     private bool isAttacking;

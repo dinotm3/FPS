@@ -31,9 +31,10 @@ public class TaskGoToTarget : Node
                 //    _transform.position, target.position, GuardBT.speed * Time.deltaTime);
                 //_transform.LookAt(target.position);
                 agent.SetDestination(target.position);
+                agent.stoppingDistance = 3f;
                 if (_animator != null && _animator.isActiveAndEnabled && _animator.gameObject.activeInHierarchy && _animator.gameObject.activeSelf)
                 {
-                    _animator.SetBool("Walking", true);
+                    _animator.SetBool("Walking", false);
                     _animator.SetBool("Idle", false);
                 }
 

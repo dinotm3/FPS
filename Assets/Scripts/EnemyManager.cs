@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Awake()
     {
-        healthpoints = 30;
+        healthpoints = 300;
     }
 
     public bool TakeHit()
