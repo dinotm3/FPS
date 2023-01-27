@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class HealthItem : Item
 {
-    public string itemName = "HealthItem";
+   // public string itemName = "HealthItem";
 }

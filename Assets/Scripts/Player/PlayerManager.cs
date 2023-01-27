@@ -1,20 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+//using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
     public int healthpoints;
     public Slider healthBar;
-    private TMP_Text healthBarText;
+    //private TMP_Text healthBarText;
     public int maxHealth;
 
     private void Awake()
     {
         healthpoints = 100;
         maxHealth = 150;
-        healthBarText = GetComponent<TMP_Text>();
-        Debug.Log("healthBarText: " + healthBarText);
+        //healthBarText = GetComponent<TMP_Text>();
     }
 
     public bool TakeHit()
@@ -36,7 +35,7 @@ public class PlayerManager : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.value = healthpoints;
-            healthBarText.text = healthpoints.ToString() + " / " + maxHealth.ToString();
+            //healthBarText.text = healthpoints.ToString() + " / " + maxHealth.ToString();
         }
     }
 }
