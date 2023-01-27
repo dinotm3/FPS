@@ -5,13 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GoToLevel2 : Interact
 {
-    void Awake()
-    {
-        gameObject.tag = interactable;
-    }
-
     public override void Trigger()
     {
+        Debug.Log("Level 2 triggered");
         SceneManager.LoadScene("Level_2");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Player")
+        {
+            Debug.Log("Level 2 triggered");
+
+            SceneManager.LoadScene("Level_2");
+        }
     }
 }

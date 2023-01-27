@@ -30,8 +30,11 @@ public class EnemyManager : Enemy
 
     public void CounterAttack(GameObject gameObject)
     {
-        agent.SetDestination(gameObject.transform.position);
-        agent.stoppingDistance = 3f;
+        //if (gameObject != null)
+        //{
+        //    agent.SetDestination(gameObject.transform.position);
+        //    agent.stoppingDistance = 3f;
 
+        //}
     }
 }

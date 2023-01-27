@@ -69,11 +69,13 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
         {
-            if (hit.collider.CompareTag("Interactable"))
+            Debug.Log("Interact: " + hit.collider.gameObject.name);
+            if (hit.collider.gameObject.name == "Next Level")
             {
                 hit.collider.gameObject.GetComponent<Interact>().Trigger();
             }
-        }
+        } 
+
     }
 
     public void ShootGun()

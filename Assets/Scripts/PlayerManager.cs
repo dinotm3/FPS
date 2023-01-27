@@ -3,19 +3,19 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    private int _healthpoints;
+    public int healthpoints;
     public Slider healthBar;
     
     private void Awake()
     {
-        _healthpoints = 100;
+        healthpoints = 100;
     }
 
     public bool TakeHit()
     {
-        _healthpoints -= 10;
-        Debug.Log("Player hp: " + _healthpoints);
-        bool isDead = _healthpoints <= 0;
+        healthpoints -= 10;
+        Debug.Log("Player hp: " + healthpoints);
+        bool isDead = healthpoints <= 0;
         if (isDead) _Die();
         return isDead;
     }
@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (healthBar != null)
         {
-            healthBar.value = _healthpoints;
+            healthBar.value = healthpoints;
 
         }
     }
