@@ -28,4 +28,9 @@ public class SettingsMenu : MonoBehaviour
     {
         Screen.fullScreen = isFullScreen;
     }
+
+    public void GoBack()
+    {
+        gameObject.SetActive(false);
+    }
 }

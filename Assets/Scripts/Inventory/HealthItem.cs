@@ -4,11 +4,5 @@ using UnityEngine;
 
 public class HealthItem : Item
 {
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string itemName = "HealthItem";
 }

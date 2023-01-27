@@ -7,7 +7,12 @@ public class Inventory : MonoBehaviour
     //list to store the items in the inventory
     public List<Item> items = new List<Item>();
     public int inventorySize = 20;
+    private PlayerManager playerManager;
 
+    private void Awake()
+    {
+        playerManager = gameObject.GetComponent<PlayerManager>();
+    }
     //function to add an item to the inventory
     public void AddItem(Item itemToAdd)
     {
@@ -22,8 +27,10 @@ public class Inventory : MonoBehaviour
 
         if (itemToAdd.itemName == "HealthItem")
         {
+
             items.Remove(itemToAdd);
-            gameObject.GetComponent<PlayerManager>().healthpoints += 10;
+            playerManager.healthpoints += 10;
+            Debug.Log("Player health: " + playerManager.healthpoints);
         }
     }
 
