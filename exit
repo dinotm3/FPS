@@ -1,0 +1,254 @@
+[33mcommit 7453decacde186970b9a74e4321ce82610c1234b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 16:38:27 2023 +0100
+
+    final
+
+[33mcommit 30bb5049be91d5b32ac684655834ad7609a53ec3[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 16:30:00 2023 +0100
+
+    deleting assets
+
+[33mcommit e0d8b61e5f2251909d28cbbccd35079d71247ef2[m[33m ([m[1;32mfinal[m[33m)[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 14:59:39 2023 +0100
+
+    final
+
+[33mcommit c8e42db983109d4223eefcfd2fa558e5a1942e9d[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 14:39:54 2023 +0100
+
+    maybe final
+
+[33mcommit 423bace5ac95221d9f1240760e01b99442b862cf[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 13:59:16 2023 +0100
+
+    cmplted intro level 1
+
+[33mcommit 1f64ef3dfe11c6c3f0f6aae779e8970ade178729[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 12:43:03 2023 +0100
+
+    added death anim to monster
+
+[33mcommit ae1059d80b50da2f77e51bc57e9fb40c33b0a844[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 11:27:53 2023 +0100
+
+    minor fixes
+
+[33mcommit d37d311c9019ff9496942f7f2d6161fcb978f048[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 10:56:02 2023 +0100
+
+    added 3rd person camera, added reload sounds
+
+[33mcommit 1954650b49509a8003c842add409f0208ec44613[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 09:18:31 2023 +0100
+
+    cant fix persistence to next level
+
+[33mcommit 6a941fc58ae521b970758edbdf01f025b7e4c027[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 06:39:56 2023 +0100
+
+    added reload, and hud text for ammo and HP
+
+[33mcommit 7652e55d8e4772dca8f42419b9ef34d31ee06ed0[m[33m ([m[1;32mbrokeAnim[m[33m)[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 28 03:42:22 2023 +0100
+
+    added new monster(scavenger)
+
+[33mcommit cf455a4dae05cd32b1792f5d10cf992014f67907[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Fri Jan 27 06:53:12 2023 +0100
+
+    added level 2 and fixed minor issues
+
+[33mcommit 241acf4fdef726ea8ebd65d36c2ac8379fbf494a[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Fri Jan 27 05:21:00 2023 +0100
+
+    fixed health bar. tried adding text but cannot access text from script
+
+[33mcommit a4e512a3cd0fc938bf4b6fc19f364e91d8a53786[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Fri Jan 27 04:44:02 2023 +0100
+
+    added working pickupable health item and cleaned project structure
+
+[33mcommit 869377be776ea2197a0746ceb5e399cf3b49d39a[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Fri Jan 27 03:23:20 2023 +0100
+
+    added intro scene
+
+[33mcommit 47e30e99bbadf5ff1097943ba7a1b15a6c316f8e[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Fri Jan 27 02:05:23 2023 +0100
+
+    fixed patrol by increasing stopping distance to 3f
+
+[33mcommit 596d62e6a41e3fa8d455f57882a1c0e830001d47[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Fri Jan 27 01:28:56 2023 +0100
+
+    added level 2 entrance
+
+[33mcommit 1388af421a0040d6ed681fb8c8b2fcfb078c622d[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Thu Jan 26 10:21:41 2023 +0100
+
+    minor fixes. TODO: fix monster not patroling again.
+
+[33mcommit 3bb04f6dae0fdd8128faca74feeee222f5234998[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Thu Jan 26 09:16:27 2023 +0100
+
+    level 1 walls
+
+[33mcommit 038b8553ca0e9127421dc1b5a5eadd840ea2e62f[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Thu Jan 26 08:56:10 2023 +0100
+
+    added interactable abstract and level 2 button
+
+[33mcommit 5daa860b70650fe9e724d851790d929d542316ba[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Thu Jan 26 07:51:43 2023 +0100
+
+    hotfixes and added env
+
+[33mcommit e8824487ab2c8a0c6f95ad55507220a1e3c0c4b5[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Thu Jan 26 06:22:17 2023 +0100
+
+    added sound to gun
+
+[33mcommit 6e7a571c6718630bf7f6b8a56008b6d7af00e532[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Thu Jan 26 05:45:18 2023 +0100
+
+    fixed monster animation issues. added NodeState: Failure in return of Attack()
+
+[33mcommit c06d3e02642c232f1aa32759c42ac4cbd8af2256[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Wed Jan 25 15:29:18 2023 +0100
+
+    fixed monster animation
+
+[33mcommit b60556a97914bad46b1dd9c3b22dd1016fb97ddf[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Wed Jan 25 12:42:48 2023 +0100
+
+    added gun recoil
+
+[33mcommit ba3236ee54683249290290d55d0e9b90ec0b0a21[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Wed Jan 25 11:36:13 2023 +0100
+
+    hotfix
+
+[33mcommit 65949a67849a64251da93aa4f23a6335d821bcba[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Wed Jan 25 10:53:25 2023 +0100
+
+    added HSM to player animator with jump animation
+
+[33mcommit 9482e299eb55b317c6e5937aebf7623177079fe0[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Wed Jan 25 08:28:53 2023 +0100
+
+    added player animations, blend tree
+
+[33mcommit 6d7fac69ba23f4fea5653f53003fab3b2408e5c3[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 14:56:55 2023 +0100
+
+    added some lighting
+
+[33mcommit 2d6ff3a9ba8a74054c1dc6c6b9dbdf8f383b5e1e[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 11:50:13 2023 +0100
+
+    customized skybox
+
+[33mcommit 285882a1d998f6512464aaa109b0cf650ef67ab1[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 11:41:12 2023 +0100
+
+    added health bar
+
+[33mcommit faa6e37d7125d5ea3e862ac34c7eb5e7cec55a3e[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 11:18:40 2023 +0100
+
+    added player prefs for settings
+
+[33mcommit 5e20827b12feccc1ded2821a9bf21d099a88e4f0[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 11:06:49 2023 +0100
+
+    fixed mixer issue and added fullscreen toggle to settings
+
+[33mcommit 670b9b21241e747209e1f7bb70a9de38205c88ed[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 10:47:40 2023 +0100
+
+    added in game settings menu
+
+[33mcommit 73b9d6fdd8ff9176b154f1731c9cfa541cf0c558[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 04:05:16 2023 +0100
+
+    added pause menu.TODO: add settings and main menu
+
+[33mcommit 3009e1d8c069ce3542834d829661a791079d0282[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 02:48:44 2023 +0100
+
+    fixed navAgents going through walls
+
+[33mcommit 1012c8d1453b24d7cffdf5fa5f7655094ddab3d8[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Tue Jan 24 02:27:28 2023 +0100
+
+    added 3d positioned sounds to monsters and audio manager
+
+[33mcommit 530bae6c222254897c8e2491ca7fe360987d8b0c[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 21 16:05:07 2023 +0100
+
+    TODO: figure out why first set of waypoints works and others dont
+
+[33mcommit fd77926801b47cb1c9d1b0bf64ebd99fc7596399[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 21 14:35:34 2023 +0100
+
+    fixing map, testing navagent for enemy npc
+
+[33mcommit 6d76ff200e496497c6e77487b9889cc438ad0081[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 21 12:51:26 2023 +0100
+
+    many fixes
+
+[33mcommit 157bcc586bfc9f6cd6d0c58085b6c7304e4f53aa[m
+Merge: a44603d 0869523
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 21 11:55:03 2023 +0100
+
+    Merge branch 'testBug'
+
+[33mcommit a44603d71e0d153e674b4de31fd724eb30b989e2[m
+Author: Dino Tretinjak Mesarić <dtretin@racunarstvo.hr>
+Date:   Sat Jan 21 11:54:03 2023 +0100
+
+    update
+
+[33mcommit 
