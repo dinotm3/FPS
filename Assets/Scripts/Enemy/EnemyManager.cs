@@ -12,10 +12,18 @@ public class EnemyManager : Enemy
         healthPoints = maxHP;
         guardBT = GetComponent<GuardBT>();
         agent = GetComponent<NavMeshAgent>();
+        if (gameObject.name == "ScavengerGray")
+        {
+            attackRange = 20f;
+        } else
+        {
+            attackRange = 4f;
+        }
     }
 
     public bool TakeHit()
     {
+        // play sound
         healthPoints -= 10;
         Debug.Log("Enemy hp: " + healthPoints);
         bool isDead = healthPoints <= 0;
