@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,11 @@ public class PlayerController : MonoBehaviour
 
     public bool canShoot;
 
+    private Pistol pistol;
+    private Inventory inventory;
+    public int ammo;
+    private bool isReloading;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -57,6 +63,7 @@ public class PlayerController : MonoBehaviour
         jumpAnimation= Animator.StringToHash("Jump");
         recoilAnimation= Animator.StringToHash("Recoil");
         canShoot = true;
+        inventory = GetComponent<Inventory>();       
     }
 
     private void OnEnable()
@@ -75,37 +82,98 @@ public class PlayerController : MonoBehaviour
                 hit.collider.gameObject.GetComponent<Interact>().Trigger();
             }
         } 
+    }
+
+    public Weapon EquipWeapon()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            var equippedWeapon = pistol;
+            Debug.Log("Equipped pistol");
+
+            return equippedWeapon;
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            // something else
+            Debug.Log("Equipped something else");
+
+        } 
+        return pistol;
 
     }
 
+    IEnumerator Reload()
+    {
+        Debug.Log("reloading");
+        isReloading = true;
+        yield return new WaitForSeconds(3);
+        Debug.Log("reload finished");
+        inventory.ammo = 24;
+        inventory.ammoInInventory -= 24;
+        isReloading = false;
+    }
+
+    public GameObject CreateBullet()
+    {
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+        bullet.GetComponent<MeshRenderer>().enabled = false;
+        return bullet;
+    }
     public void ShootGun()
     {
         if (!PauseMenu.isPaused)
         {
+            if (!isReloading && inventory.ammo <= 0)
+            {
+                StartCoroutine(Reload());
+            }
 
-            RaycastHit hit;
-            GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
-            bullet.GetComponent<MeshRenderer>().enabled = false;
-            AudioManager.instance.PlaySound("Shoot");
-            BulletController bulletController = bullet.GetComponent<BulletController>();
-            if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
+            if (!isReloading && inventory.ammo > 0)
             {
-                bulletController.target = hit.point;
-                bulletController.hit = true;
-            }
-            else
+                inventory.ammo -= 1;
+                Debug.Log("ammo: " + ammo);
+                RaycastHit hit;
+                GameObject bullet = CreateBullet();
+                AudioManager.instance.PlaySound("Shoot");
+                BulletController bulletController = bullet.GetComponent<BulletController>();
+                if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, Mathf.Infinity))
+                {
+                    bulletController.target = hit.point;
+                    bulletController.hit = true;
+                }
+                else
+                {
+                    bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
+                    bulletController.hit = false;
+                }
+                animator.CrossFade(recoilAnimation, 0.2f);
+            } else
             {
-                bulletController.target = cameraTransform.position + cameraTransform.forward * bulletHitMissDistance;
-                bulletController.hit = false;
+                Debug.Log("Wait i am reloading!");
             }
-            animator.CrossFade(recoilAnimation, 0.2f);
         }
     }
+
+
 
     void Update()
     {
         if (!PauseMenu.isPaused)
         {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("Equipped pistol");
+
+
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                // something else
+                Debug.Log("Equipped something else");
+
+            }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Interact();

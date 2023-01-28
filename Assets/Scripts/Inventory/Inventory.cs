@@ -8,10 +8,27 @@ public class Inventory : MonoBehaviour
     public List<Item> items = new List<Item>();
     public int inventorySize = 20;
     private PlayerManager playerManager;
-
+    public Pistol pistol;
+    public int ammoInInventory;
+    public int ammo;
     private void Awake()
     {
         playerManager = gameObject.GetComponent<PlayerManager>();
+        ammoInInventory = 100;
+        ammo = 24;
+        items.Add(pistol);
+    }
+
+    public int GetWeaponDamage()
+    {
+        // if pistol
+        return 10;
+    }
+    public Pistol GetPistol()
+    {
+        // TODO if pistol = 10, else ..
+        
+        return pistol;
     }
     //function to add an item to the inventory
     public void AddItem(Item itemToAdd)

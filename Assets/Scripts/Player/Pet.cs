@@ -12,6 +12,7 @@ public class Pet : MonoBehaviour
     private float attackRange = 2;
     private float attackCounter = 0f;
     private float attackTime = 5f;
+    private int attackDamage = 10;
     private EnemyRangeCheck rangeCheck;
     private PlayerManager playerManager;
     private bool isAttacking;
@@ -44,7 +45,7 @@ public class Pet : MonoBehaviour
                 if (rangeCheck.CheckRange(enemyManager.transform.position))
                 {
                     animator.SetBool(bearAttackAnim, true);
-                    enemyManager.TakeHit();
+                    enemyManager.TakeHit(attackDamage);
                 } else
                 {
                     agent.SetDestination(enemyManager.transform.position);

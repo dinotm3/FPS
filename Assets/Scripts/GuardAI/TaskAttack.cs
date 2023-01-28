@@ -10,7 +10,7 @@ public class TaskAttack : Node
 
     private Transform _lastTarget;
     private PlayerManager _playerManager;
-    private float _attackTime = 2f;
+    private float _attackTime = 1f;
     private float _attackCounter = 0f;
     private Transform _startPosition;
     private EnemyRangeCheck _rangeCheck;

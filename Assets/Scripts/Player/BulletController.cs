@@ -12,10 +12,13 @@ public class BulletController : MonoBehaviour
 
     public Vector3 target { get; set; }
     public bool hit { get; set; }
+    public Inventory inventory;
 
     private void OnEnable()
     {
         Destroy(gameObject, timeToDestroy);
+        //inventory = GameObject.Find("Player").GetComponent<Inventory>();
+
     }
 
     // Switch with pooling
@@ -36,7 +39,7 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
-            collision.gameObject.GetComponent<EnemyManager>().TakeHit();
+            collision.gameObject.GetComponent<EnemyManager>().TakeHit(GameObject.Find("Player").GetComponent<Inventory>().GetWeaponDamage());
             collision.gameObject.GetComponent<EnemyManager>().CounterAttack(GameObject.Find("Player"));
         } 
         else if (collision.gameObject.CompareTag("Pet")) 

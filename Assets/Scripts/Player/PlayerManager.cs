@@ -1,19 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
-//using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
     public int healthpoints;
     public Slider healthBar;
-    //private TMP_Text healthBarText;
+    public Text healthBarText;
+    public Text ammoBarText;
     public int maxHealth;
+    public int ammo;
+    public int ammoInInventory;
+    public Inventory inventory;
+    public PlayerController pController;
 
     private void Awake()
     {
         healthpoints = 100;
         maxHealth = 150;
-        //healthBarText = GetComponent<TMP_Text>();
+        inventory = GetComponent<Inventory>();
+  
     }
 
     public bool TakeHit()
@@ -32,10 +37,11 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if (healthBar != null)
+        if (healthBar != null && ammoBarText != null)
         {
             healthBar.value = healthpoints;
-            //healthBarText.text = healthpoints.ToString() + " / " + maxHealth.ToString();
+            healthBarText.text = healthpoints.ToString() + " / " + maxHealth.ToString();
+            ammoBarText.text = inventory.ammo.ToString() + " / " + inventory.ammoInInventory.ToString();
         }
     }
 }

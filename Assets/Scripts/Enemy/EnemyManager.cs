@@ -14,9 +14,9 @@ public class EnemyManager : Enemy
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public bool TakeHit()
+    public bool TakeHit(int damage)
     {
-        healthPoints -= 10;
+        healthPoints -= damage;
         Debug.Log("Enemy hp: " + healthPoints);
         bool isDead = healthPoints <= 0;
         if (isDead) _Die();
