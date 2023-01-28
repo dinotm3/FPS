@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private Inventory inventory;
     public int ammo;
     private bool isReloading;
-
+    public AudioManager audioManager;
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("reloading");
         isReloading = true;
+        audioManager.PlaySound("Reload");
         yield return new WaitForSeconds(3);
         Debug.Log("reload finished");
         var leftoverAmmo = inventory.ammo;

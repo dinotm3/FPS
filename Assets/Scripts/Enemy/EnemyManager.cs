@@ -4,14 +4,16 @@ using UnityEngine.AI;
 public class EnemyManager : Enemy
 {
     public GuardBT guardBT;
-    public static int maxHP = 100;
+    public static int maxHP = 30;
     private NavMeshAgent agent;
+    private Animator animator;
 
     private void Awake()
     {
         healthPoints = maxHP;
         guardBT = GetComponent<GuardBT>();
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     public bool TakeHit(int damage)
@@ -25,7 +27,20 @@ public class EnemyManager : Enemy
 
     private void _Die()
     {
-        Destroy(this.gameObject);
+        animator.SetBool("Dead", true);
+        animator.SetBool("Walking", false);
+        animator.SetBool("Attacking", false);
+        animator.SetBool("Idle", false);
+        // Destroy(this.gameObject);
+        if (GetComponent<GuardBT>() != null)
+        {
+            GetComponent<GuardBT>().enabled = false;
+
+        } else
+        {
+            GetComponent<GuardBTNoPatrol>().enabled = false;
+
+        }
     }
 
     public void CounterAttack(GameObject gameObject)

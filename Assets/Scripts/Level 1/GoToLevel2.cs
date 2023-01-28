@@ -7,7 +7,7 @@ public class GoToLevel2 : Interact
 {
     public override void Trigger()
     {
-        Debug.Log("Level 2 triggered");
+        Debug.Log("Trigger()");
         SceneManager.LoadScene("Level_2");
 
     }

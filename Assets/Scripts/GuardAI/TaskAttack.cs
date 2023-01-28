@@ -28,6 +28,7 @@ public class TaskAttack : Node
             _animator.SetBool("Attacking", true);
             _animator.SetBool("Walking", false);
             _animator.SetBool("Idle", false);
+            _animator.SetBool("Dead", false);
             bool enemyIsDead = _playerManager.TakeHit();
             if (enemyIsDead)
             {
@@ -40,12 +41,16 @@ public class TaskAttack : Node
                 _animator.SetBool("Attacking", true);
                 _animator.SetBool("Walking", false);
                 _animator.SetBool("Idle", false);
+                _animator.SetBool("Dead", false);
+
             }
         } else
         {
             _animator.SetBool("Attacking", false);
             _animator.SetBool("Walking", true);
             _animator.SetBool("Idle", false);
+            _animator.SetBool("Dead", false);
+
         }
         return state = NodeState.FAILURE;  
     }

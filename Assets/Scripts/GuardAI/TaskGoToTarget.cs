@@ -36,9 +36,8 @@ public class TaskGoToTarget : Node
                 {
                     _animator.SetBool("Walking", false);
                     _animator.SetBool("Idle", false);
+                    _animator.SetBool("Dead", false);
                 }
-
-
             }
         }
 

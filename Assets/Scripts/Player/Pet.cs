@@ -9,8 +9,6 @@ public class Pet : MonoBehaviour
     private Camera camera;
     private Animator animator;
     public static int enemyLayerMask;
-    private float attackRange = 2;
-    private float attackCounter = 0f;
     private float attackTime = 5f;
     private int attackDamage = 10;
     private EnemyRangeCheck rangeCheck;
@@ -45,10 +43,16 @@ public class Pet : MonoBehaviour
                 if (rangeCheck.CheckRange(enemyManager.transform.position))
                 {
                     animator.SetBool(bearAttackAnim, true);
+                    animator.SetBool("WalkForward", false);
+                    animator.SetBool("Idle", false);
                     enemyManager.TakeHit(attackDamage);
                 } else
                 {
                     agent.SetDestination(enemyManager.transform.position);
+                    animator.SetBool(bearAttackAnim, false);
+                    animator.SetBool("WalkForward", true);
+                    animator.SetBool("Idle", false);
+                    isAttacking = false;
                 }
             }
             yield return new WaitForSeconds(attackTime);
@@ -85,6 +89,7 @@ public class Pet : MonoBehaviour
             }
             animator.SetBool("Idle", false);
             animator.SetBool("WalkForward", true);
+            isAttacking = false;
             agent.SetDestination(hitInfo.point);
         }
 

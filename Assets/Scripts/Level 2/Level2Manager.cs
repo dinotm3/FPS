@@ -5,12 +5,11 @@ using UnityEngine.AI;
 
 public class Level2Manager : MonoBehaviour
 {
-    void Awake()
+    private AudioSource audioSource;
+    void Start()
     {
-        //var startPosition = GameObject.FindGameObjectWithTag("Level2").transform.position;
-        //GameObject player = GameObject.FindGameObjectWithTag("Player");
-        //player.GetComponent<NavMeshAgent>().enabled = false;
-        //player.transform.position = startPosition;
-        //player.GetComponent<NavMeshAgent>().enabled = true;
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.Play();
     }
 }
+

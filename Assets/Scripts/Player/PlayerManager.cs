@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -12,16 +13,30 @@ public class PlayerManager : MonoBehaviour
     public int ammoInInventory;
     public Inventory inventory;
     public PlayerController pController;
+    public Image gotHit;
 
-    private void Awake()
+    private void Start()
     {
         healthpoints = 100;
         maxHealth = 150;
         inventory = GetComponent<Inventory>();
+        if (gotHit != null)
+        {
+            gotHit.gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator RedScreen()
+    {
+        gotHit.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        gotHit.gameObject.SetActive(false);
+        StopCoroutine(RedScreen());
     }
 
     public bool TakeHit()
     {
+        StartCoroutine(RedScreen());
         healthpoints -= 10;
         Debug.Log("Player hp: " + healthpoints);
         bool isDead = healthpoints <= 0;

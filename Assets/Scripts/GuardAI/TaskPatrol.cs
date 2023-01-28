@@ -36,6 +36,8 @@ public class TaskPatrol : Node
                 _animator.SetBool("Walking", true);
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Attacking", false);
+                _animator.SetBool("Dead", false);
+
             }
         }
 
@@ -51,6 +53,7 @@ public class TaskPatrol : Node
                 _animator.SetBool("Walking", false);
                 _animator.SetBool("Idle", true);
                 _animator.SetBool("Attacking", false);
+                _animator.SetBool("Dead", false);
             }
         }
         else
@@ -63,6 +66,7 @@ public class TaskPatrol : Node
                 _animator.SetBool("Walking", true);
                 _animator.SetBool("Idle", false);
                 _animator.SetBool("Attacking", false);
+                _animator.SetBool("Dead", false);
             }
         }
 
