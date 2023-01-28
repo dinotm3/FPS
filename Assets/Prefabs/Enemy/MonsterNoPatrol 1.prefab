@@ -1597,7 +1597,7 @@ GameObject:
   - component: {fileID: 7953754286666139913}
   - component: {fileID: 7953754286666139914}
   m_Layer: 7
-  m_Name: MonsterNoPatrol
+  m_Name: MonsterNoPatrol 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1610,7 +1610,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7953754288215201354}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.056915, y: 0, z: -36.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1652,7 +1652,7 @@ Animator:
   m_GameObject: {fileID: 7953754288215201354}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f0a1ccbcad752104484b92f85be3f1f1, type: 3}
-  m_Controller: {fileID: 9100000, guid: 70e289a23f98eb441a6dacc557f0edf6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 94836e66a00af6749bb770577dbce6f5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

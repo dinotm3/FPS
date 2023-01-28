@@ -112,7 +112,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.15
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -183,7 +183,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MonsterController
+  m_Name: MonsterController 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Walking
@@ -191,19 +191,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Attacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Idle
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -256,7 +256,7 @@ AnimatorStateMachine:
     m_Position: {x: 440, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5183923522868884331}
-    m_Position: {x: 440, y: 290, z: 0}
+    m_Position: {x: 440, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8966798831661136063}
     m_Position: {x: 630, y: 190, z: 0}
