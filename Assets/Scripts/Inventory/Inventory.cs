@@ -11,12 +11,13 @@ public class Inventory : MonoBehaviour
     public Pistol pistol;
     public int ammoInInventory;
     public int ammo;
+
     private void Awake()
     {
         playerManager = gameObject.GetComponent<PlayerManager>();
+        items.Add(pistol);
         ammoInInventory = 100;
         ammo = 24;
-        items.Add(pistol);
     }
 
     public int GetWeaponDamage()
@@ -44,10 +45,18 @@ public class Inventory : MonoBehaviour
 
         if (itemToAdd.itemName == "HealthItem")
         {
-
+            if (playerManager.healthpoints < playerManager.maxHealth)
+            {
+                playerManager.healthpoints += 10;
+            }
             items.Remove(itemToAdd);
-            playerManager.healthpoints += 10;
             Debug.Log("Player health: " + playerManager.healthpoints);
+        }
+
+        if (itemToAdd.itemName == "Ammo")
+        {
+            ammoInInventory += 8;
+            items.Remove(itemToAdd);
         }
     }
 

@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     [SerializeField]
     private float playerSpeed = 5f;
     [SerializeField]
@@ -63,7 +64,15 @@ public class PlayerController : MonoBehaviour
         jumpAnimation= Animator.StringToHash("Jump");
         recoilAnimation= Animator.StringToHash("Recoil");
         canShoot = true;
-        inventory = GetComponent<Inventory>();       
+        inventory = GetComponent<Inventory>();
+
+        //if (instance != null)
+        //{
+        //    Destroy(this.gameObject);
+        //    return;
+        //}
+        //instance = this;
+        //GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnEnable()
@@ -110,8 +119,9 @@ public class PlayerController : MonoBehaviour
         isReloading = true;
         yield return new WaitForSeconds(3);
         Debug.Log("reload finished");
+        var leftoverAmmo = inventory.ammo;
         inventory.ammo = 24;
-        inventory.ammoInInventory -= 24;
+        inventory.ammoInInventory = inventory.ammoInInventory - 24 + leftoverAmmo;
         isReloading = false;
     }
 
@@ -121,6 +131,7 @@ public class PlayerController : MonoBehaviour
         bullet.GetComponent<MeshRenderer>().enabled = false;
         return bullet;
     }
+
     public void ShootGun()
     {
         if (!PauseMenu.isPaused)
@@ -156,8 +167,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
     void Update()
     {
         if (!PauseMenu.isPaused)
@@ -178,6 +187,12 @@ public class PlayerController : MonoBehaviour
             {
                 Interact();
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                StartCoroutine(Reload());
+            }
+
             crosshair.SetActive(true);
             groundedPlayer = controller.isGrounded;
             if (groundedPlayer && playerVelocity.y < 0)

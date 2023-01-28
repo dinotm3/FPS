@@ -18,7 +18,6 @@ public class PlayerManager : MonoBehaviour
         healthpoints = 100;
         maxHealth = 150;
         inventory = GetComponent<Inventory>();
-  
     }
 
     public bool TakeHit()
@@ -40,8 +39,8 @@ public class PlayerManager : MonoBehaviour
         if (healthBar != null && ammoBarText != null)
         {
             healthBar.value = healthpoints;
-            healthBarText.text = healthpoints.ToString() + " / " + maxHealth.ToString();
-            ammoBarText.text = inventory.ammo.ToString() + " / " + inventory.ammoInInventory.ToString();
+            healthBarText.text = "HEALTH: " + healthpoints.ToString() + " / " + maxHealth.ToString();
+            ammoBarText.text = "AMMO: " + inventory.ammo.ToString() + " / " + inventory.ammoInInventory.ToString();
         }
     }
 }

@@ -9,6 +9,7 @@ public class GoToLevel2 : Interact
     {
         Debug.Log("Level 2 triggered");
         SceneManager.LoadScene("Level_2");
+
     }
 
     private void OnTriggerEnter(Collider other)
